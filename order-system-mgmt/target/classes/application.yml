@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://shruthisree07:Sreessruthi07@cluster0.btkvwsx.mongodb.net/OrderSystem?retryWrites=true&w=majority&appName=Cluster0
+  kafka:
+    bootstrap-servers: pkc-619z3.us-east1.gcp.confluent.cloud:9092
+    consumer:
+      group-id: order_group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    properties:
+      security.protocol: SASL_SSL
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: >-
+        org.apache.kafka.common.security.plain.PlainLoginModule required
+        username="4GKKK43YR7IVKRRT"
+        password="zIqGBXkETuS7pyJueGZO/s05eOeqOub7HWL6bRMGcC0eavXNZcxWrJGFxcEQwIIY";
+
+
+logging:
+  level:
+    org.springframework.kafka: DEBUG
+    org.apache.kafka: DEBUG
